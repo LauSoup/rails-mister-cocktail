@@ -1,0 +1,18 @@
+body {
+  color: $deep-blue;
+}
+
+.header-cocktail {
+  background-image: url("drew-beamer-bTN-zKFy9uA-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+
+  h1 {
+    color: $light-grey;
+  }
+}
