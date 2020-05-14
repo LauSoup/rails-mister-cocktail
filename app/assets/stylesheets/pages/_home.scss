@@ -16,3 +16,13 @@ body {
     color: $light-grey;
   }
 }
+
+a:hover {
+  text-decoration: none;
+  color: $light-grey;
+}
+
+body {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+}

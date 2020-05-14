@@ -1,10 +1,29 @@
-<h1><%= @cocktail.name %></h1>
 
-<% @cocktail.doses.each do |dose| %>
-  <li> 
-    <%= dose.description %> of <%= dose.ingredient[:name] %>
-    <%= link_to  "💣", cocktail_dose_path(@cocktail, dose), method: "delete", data: {confirm: "Are you sure?"} %>
-  </li>
-<% end %>
-<br>
-<%= link_to  "add new dose", new_cocktail_dose_path(@cocktail) %>
+<div class="header-cocktail">
+  <h1><%= @cocktail.name %></h1>
+</div>
+
+<div class="container">
+  <div class="container-flex">
+    <div class="block">
+      <h2>Description</h2>
+      <p><%= @cocktail.description %></p>
+    </div>
+
+    <div class="block">
+      <h2>Ingredients</h2>
+      <br>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li> 
+            <%= dose.description %> of <%= dose.ingredient[:name] %>
+            <%= link_to  "💣", cocktail_dose_path(@cocktail, dose), method: "delete", data: {confirm: "Are you sure?"} %>
+          </li>
+        <% end %>
+      </ul>
+      <br>
+      <br>
+      <%= link_to  "Add new ingredient", new_cocktail_dose_path(@cocktail), class:"blue-button" %>
+    </div>
+  </div>
+</div>
