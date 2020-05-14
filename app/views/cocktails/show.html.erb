@@ -8,6 +8,9 @@
     <div class="block">
       <h2>Description</h2>
       <p><%= @cocktail.description %></p>
+      <br>
+      <br>
+      <%= link_to  "Modify", edit_cocktail_path(@cocktail), class:"blue-button" %>
     </div>
 
     <div class="block">
