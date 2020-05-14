@@ -1,17 +1,18 @@
+
+<div class="container content-center">
+  <%= image_tag  "https://cdn.pixabay.com/photo/2013/07/13/13/45/tux-161475_1280.png", class: "img-new" %>
+</div>
+
 <div class="container">
   <h1>Your new cocktail</h1>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="column">
-      <%= simple_form_for @cocktail do |f| %>
-        <%= f.input :name %>
-        <%= f.input :image_url %>
-        <%= f.input :description %>
-        <br>
-        <br>
-        <%= f.submit class: "blue-button" %>
-      <% end %>
-      </div>
-   </div>
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :image_url %>
+    <%= f.input :description %>
+    <br>
+    <br>
+    <%= f.submit class: "blue-button" %>
+  <% end %>
 </div>

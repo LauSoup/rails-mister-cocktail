@@ -2,8 +2,6 @@
   <h1><%= @cocktail.name %></h1>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="column">
       <%= simple_form_for @cocktail do |f| %>
         <%= f.input :name %>
         <%= f.input :image_url %>
@@ -12,6 +10,4 @@
         <br>
         <%= f.submit class: "blue-button" %>
       <% end %>
-      </div>
-   </div>
 </div>
