@@ -17,7 +17,7 @@
         <% @cocktail.doses.each do |dose| %>
           <li> 
             <%= dose.description %> of <%= dose.ingredient[:name] %>
-            <%= link_to  "💣", cocktail_dose_path(@cocktail, dose), method: "delete", data: {confirm: "Are you sure?"} %>
+            <%= link_to  "[delete]", cocktail_dose_path(@cocktail, dose), method: "delete", data: {confirm: "Are you sure?"}, class:"delete" %>
           </li>
         <% end %>
       </ul>

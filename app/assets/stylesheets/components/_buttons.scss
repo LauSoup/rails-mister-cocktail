@@ -8,3 +8,13 @@
   background-color: $red;
   opacity: 0.6;
 }
+
+.delete {
+  font-style: italic;
+  color: $grey;
+  font-size: 15px;
+}
+
+.delete:hover {
+  color: $red;
+}
