@@ -10,13 +10,13 @@ require("channels")
 
 import 'bootstrap';
 
-import { banner } from "../components/banner";
+import { initUpdateNavbarOnScroll } from "../components/navbar";
 import { initSelect2 } from '../components/select2';
 import { newIngredient } from '../components/new_ingredient';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
-  banner();
+  initUpdateNavbarOnScroll();
   newIngredient();
 });
 // Uncomment to copy all static images under ../images to the output folder and reference

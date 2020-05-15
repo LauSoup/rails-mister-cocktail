@@ -13,7 +13,7 @@
 
   <body>
 
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
       <%= link_to root_path,  class: "navbar-brand" do %>
         <%= image_tag "iconfinder_cocktails_1936913.png" %>
       <% end %>
@@ -32,7 +32,8 @@
       </div>
     </div>
 
-
-    <%= yield %>
+    <div class="content" style = "margin-top:98px">
+      <%= yield %>
+    </div>
   </body>
 </html>
