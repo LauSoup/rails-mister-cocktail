@@ -20,12 +20,14 @@ class CocktailsController < ApplicationController
   
   def create 
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail.image_url = "https://source.unsplash.com/featured/?#{@cocktail.name}" if @cocktail.image_url == ""
-  
+    if @cocktail.image_url == ""
+      search_words = @cocktail.name.gsub(" ", ",")
+      @cocktail.image_url = "https://source.unsplash.com/featured/?#{search_words}" 
+    end
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
-      render 'new'
+      render 'new'  
     end
   end
 
@@ -34,8 +36,11 @@ class CocktailsController < ApplicationController
 
   def update
     if @cocktail.update(cocktail_params)
-      @cocktail.image_url = "https://source.unsplash.com/featured/?#{@cocktail.name}" if @cocktail.image_url == ""
-      @cocktail.save
+      if @cocktail.image_url == ""
+        search_words = @cocktail.name.gsub(" ", ",")
+        @cocktail.image_url = "https://source.unsplash.com/featured/?#{search_words}" 
+        @cocktail.save
+      end
       redirect_to cocktail_path(@cocktail)
     else
       render 'edit'
