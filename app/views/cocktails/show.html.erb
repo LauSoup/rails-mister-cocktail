@@ -34,7 +34,7 @@
       <div id="form-dose">
         <%= simple_form_for [ @cocktail, @dose ] do |f| %>
           <%= f.input :description, label: 'Quantity' %>
-          <%= f.association :ingredient, class: "select2" %>
+          <%= f.association :ingredient, input_html: { class: "select2" } %>
 
           <%= f.submit class: "blue-button" %>
         <% end %>
