@@ -4,7 +4,7 @@
 <div class="container">
       <%= simple_form_for @cocktail do |f| %>
         <%= f.input :name %>
-        <%= f.input :image_url %>
+        <%= f.input :image_url, label: "Image url (we will put a random one if you don't fill it 😉) " %>
         <%= f.input :description %>
         <br>
         <br>

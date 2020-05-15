@@ -19,6 +19,8 @@ class CocktailsController < ApplicationController
   
   def create 
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.image_url = "https://source.unsplash.com/featured/?#{@cocktail.name}" if @cocktail.image_url == ""
+  
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
@@ -33,6 +35,8 @@ class CocktailsController < ApplicationController
   def update
     @cocktail = Cocktail.find(params[:id])
     if @cocktail.update(cocktail_params)
+      @cocktail.image_url = "https://source.unsplash.com/featured/?#{@cocktail.name}" if @cocktail.image_url == ""
+      @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
       render 'edit'
