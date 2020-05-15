@@ -2,7 +2,7 @@ class CocktailsController < ApplicationController
 
   def index
     if params[:query].present?
-      @cocktails = Cocktail.where('name LIKE ?', "%#{params[:query]}%")
+      @cocktails = Cocktail.where('lower(name) LIKE ?', "%#{params[:query].downcase}%")
     else
       @cocktails = Cocktail.all
     end
