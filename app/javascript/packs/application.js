@@ -10,6 +10,15 @@ require("channels")
 
 import 'bootstrap';
 
+import { banner } from "../components/banner";
+import { initSelect2 } from '../components/select2';
+import { newIngredient } from '../components/new_ingredient';
+
+document.addEventListener('turbolinks:load', () => {
+  initSelect2();
+  banner();
+  newIngredient();
+});
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

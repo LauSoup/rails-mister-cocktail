@@ -5,8 +5,8 @@
   <div class="row">
     <div class="column">
       <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-        <%= f.input :description, label: 'Quantité' %>
-        <%= f.association :ingredient %> 
+        <%= f.input :description, label: 'Quantity' %>
+        <%= f.association :ingredient, class: "select2" %>
 
         <br>
         <br>

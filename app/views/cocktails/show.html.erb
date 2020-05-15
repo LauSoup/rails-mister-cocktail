@@ -26,7 +26,19 @@
       </ul>
       <br>
       <br>
-      <%= link_to  "Add new ingredient", new_cocktail_dose_path(@cocktail), class:"blue-button" %>
+      <div class="blue-button" id="add-ing-button">
+      Add new ingredient
+      </div>
+      <%# link_to  "Add new ingredient", new_cocktail_dose_path(@cocktail), class:"blue-button", id:"add-ing-button" %>
+
+      <div id="form-dose">
+        <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+          <%= f.input :description, label: 'Quantity' %>
+          <%= f.association :ingredient, class: "select2" %>
+
+          <%= f.submit class: "blue-button" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
