@@ -1,0 +1,8 @@
+<%= simple_form_for(cocktail) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :image_url, label: "Image url (we will put a random one if you don't fill it 😉) " %>
+  <%= f.input :description %>
+  <br>
+  <br>
+  <%= f.submit class: "blue-button" %>
+<% end %>

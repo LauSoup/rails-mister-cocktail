@@ -1,5 +1,7 @@
 class CocktailsController < ApplicationController
 
+  before_action :set_cocktail, only: [:show, :edit, :update]
+
   def index
     if params[:query].present?
       @cocktails = Cocktail.where('lower(name) LIKE ?', "%#{params[:query].downcase}%")
@@ -9,7 +11,6 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
   end
 
@@ -29,11 +30,9 @@ class CocktailsController < ApplicationController
   end
 
   def edit
-    @cocktail = Cocktail.find(params[:id])
   end
 
   def update
-    @cocktail = Cocktail.find(params[:id])
     if @cocktail.update(cocktail_params)
       @cocktail.image_url = "https://source.unsplash.com/featured/?#{@cocktail.name}" if @cocktail.image_url == ""
       @cocktail.save
@@ -49,5 +48,9 @@ class CocktailsController < ApplicationController
   def cocktail_params
     params.require(:cocktail).permit(:name, :description, :image_url)
   end 
+
+  def set_cocktail
+    @cocktail = Cocktail.find(params[:id])
+  end
 
 end
