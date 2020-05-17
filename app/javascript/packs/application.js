@@ -13,15 +13,25 @@ import 'bootstrap';
 import { initSelect2 } from '../components/select2';
 import { newIngredient } from '../components/new_ingredient';
 import { loadDynamicBannerText } from '../components/typed_text_new';
+import { newReview } from '../components/new_review';
+
 // import { loadDynamicSearchText } from '../components/typed_text_new';
 
 
 document.addEventListener('turbolinks:load', () => {
-  loadDynamicBannerText();
-  // loadDynamicSearchText();
-  initSelect2();
   newIngredient();
+  initSelect2();
 });
+
+document.addEventListener('turbolinks:load', () => {
+  loadDynamicBannerText();
+});
+
+
+document.addEventListener('turbolinks:load', () => {
+  newReview();
+});
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
