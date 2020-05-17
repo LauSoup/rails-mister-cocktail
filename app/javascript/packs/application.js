@@ -12,8 +12,13 @@ import 'bootstrap';
 
 import { initSelect2 } from '../components/select2';
 import { newIngredient } from '../components/new_ingredient';
+import { loadDynamicBannerText } from '../components/typed_text_new';
+// import { loadDynamicSearchText } from '../components/typed_text_new';
+
 
 document.addEventListener('turbolinks:load', () => {
+  loadDynamicBannerText();
+  // loadDynamicSearchText();
   initSelect2();
   newIngredient();
 });
