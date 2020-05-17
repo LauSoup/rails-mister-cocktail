@@ -9,8 +9,32 @@
       <h2>Description</h2>
       <p><%= @cocktail.description %></p>
       <br>
-      <br>
       <%= link_to  "Modify", edit_cocktail_path(@cocktail), class:"blue-button" %>
+    <br>
+    <br>
+    <div class="reviews">
+      <h2>Reviews</h2>
+      <ul>
+          <% @cocktail.reviews.each do |review| %>
+            <li class="review-block"> 
+             <div class="top-review-block">
+              <% review.rating.times do %>
+                <i class='fas fa-star'></i> 
+              <% end %>
+              <% blank_stars = 5 - review.rating %>
+              <% blank_stars.times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+              <span id="author"> by <%= review.author %> </span>
+             </div>
+             <div class="bottom-review-block">
+              <%= review.description %> 
+             </div>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+    
     </div>
 
     <div class="block">
@@ -39,6 +63,19 @@
           <%= f.submit class: "blue-button" %>
         <% end %>
       </div>
+
+      <%
+=begin%>
+ <div id="form-review">
+        <%= simple_form_for [ @cocktail, @review ] do |f| %>
+          <%= f.input :description %>
+          <%= f.input :rating %>
+
+          <%= f.submit class: "blue-button" %>
+        <% end %>
+      </div> 
+<%
+=end%>
     </div>
   </div>
 </div>
